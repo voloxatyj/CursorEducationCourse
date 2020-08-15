@@ -18,8 +18,8 @@ function getPairs(students) {
 			boys.splice(boys.indexOf(girls[i]),1)
 		}
 	}
-	for (let i = 0; i < boys.length; i++) {
-		studentsByPairs.push([`["${boys[i]}","${girls[i]}"]`])
+	for (let i = 0,j = 1; i < boys.length; i++) {
+		studentsByPairs.push([boys[i],girls[i]])
 	}
 	return studentsByPairs
 }
@@ -32,8 +32,8 @@ document.writeln(`
 function getProject (pairs, themes) {
 	themes.sort((a, b) => a.length - b.length)
 	const getProjectPairs = []
-	for(let i=0; i<pairs.length; i++) {
-		getProjectPairs.push([`["${pairs[i][0].replace(/([\[\]\"])/g, "").replace(/,/g, " i ")}", "${themes[i]}"]`])
+	for(let i=0,j=0; i<pairs.length; i++) {
+		getProjectPairs.push([`${pairs[i][j]} i ${pairs[i][j+1]}`,themes[i]])
 	}	
 	return getProjectPairs
 }
@@ -46,7 +46,7 @@ document.writeln(`
 function getRating(students, marks) {
 	const rate = []
 	for (let i = 0; i < students.length; i++) {
-		rate.push([`["${students[i].replace(/([\[\]\"])/g, "").replace(/,/g, " i ")}", ${marks[i]}]`]) 
+		rate.push([students[i], marks[i]]) 
 	}
 	return rate
 }
@@ -57,11 +57,10 @@ document.writeln(`
 function getRateForProject (pairs, themes) {
 	themes.sort((a, b) => a.length - b.length)
 	const result=[]
-	for (let i = 0; i < getProjectPairs.length;i++) {
-		result.push([`["${pairs[i][0].replace(/([\[\]\"])/g, "").replace(/,/g, " i ")}", "${themes[i]}", ${Math.ceil(Math.random() * 5)}]`])
+	for (let i = 0,j=0; i < getProjectPairs.length;i++) {
+		result.push([`${pairs[i][j]} i ${pairs[i][j + 1]}`, themes[i], Math.ceil(Math.random() * 5)])
 	}
 	return result
-
 }
 
 document.writeln(`
