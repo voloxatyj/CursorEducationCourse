@@ -9,20 +9,28 @@ function getMaxDigit (number) {
 	return biggest
 }
 
-function checkPow (num, i = 2, pow = 0) {
-	if (num % i === 0 && i !== 1) {
-		pow++
-		checkPow(num / i, i, pow)
-	} else if (i >= num) {
-		return obj = {
-			i,
-			pow
-		}
+// function checkPow (num, i = 2, pow = 0) {
+// 	if (num % i === 0 && i !== 1) {
+// 		pow++
+// 		checkPow(num / i, i, pow)
+// 	} else if (i >= num) {
+// 		return obj = {
+// 			i,
+// 			pow
+// 		}
+// 	}
+// 	else {
+// 		i++
+// 		checkPow(num, i, pow)
+// 	}
+// }
+
+function MathPow(num,pow) {
+	let res = num
+	for(let i=1; i<pow; i++) {
+		res*=num
 	}
-	else {
-		i++
-		checkPow(num, i, pow)
-	}
+	return res
 }
 
 function formatName(name) {
@@ -30,7 +38,7 @@ function formatName(name) {
 }
 
 function countTaxes(sum, tax) {
-	return sum - sum * (18 + (+`${tax}`))/100
+	return sum - sum * (18 + tax)/100
 }
 
 function getRandomNumber(min,max) {
@@ -57,7 +65,7 @@ function convertCurrency(value) {
 	}
 }
 
-function getRandomPassword(length) {
+function getRandomPassword(length=8) {
 	let i = 0
 	let randomPassword = ''
 	while(i<length) {
@@ -99,13 +107,13 @@ function deleteDuplicateLetter(word) {
 
 document.writeln(`
 <p>#1 Function getMaxDigit: ${getMaxDigit(169)}</p>
-<p>#2 Function checkPow <span style="display: none;">${checkPow(125)}</span>: number is i = ${obj.num } in pow = ${ obj.i }</p>
+<p>#2 Function checkPow ${MathPow(5,3)}</p>
 <p>#3 Function formatName: name is formated ${formatName("оСТаП")}</p>
 <p>#4 Function countTaxes: when salary is paid we have ${countTaxes(1000,1.5)} in our count</p>
 <p>#5 Function getRandomNumber: ${getRandomNumber(1,25)} random number from min to max
 <p>#6 Function countLetter: ${countLetter("а", "Асталавіста")}
 <p>#7 Function convertCurrency: live convector from UAH to USD and opposite ${convertCurrency('100usd')}
-<p>#8 Function getRandomPassword: your random password is ${getRandomPassword(10)}</p>
+<p>#8 Function getRandomPassword: your random password is ${getRandomPassword()}</p>
 <p>#9 Function deleteLetters: after we get new word ${deleteLetters('a', "blablabla")}</p>
 <p>#10 Function isPalindrom: ${isPalyndrom('Я несу гусеня')}</p>
 <p>#11 Function deleteDuplicateLetter: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}`)
