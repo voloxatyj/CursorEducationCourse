@@ -6,19 +6,19 @@ function getRandomArray(length, min, max) {
 		let item = Math.ceil(Math.random() * max) - i
 		max >= item ? item >= min ? randArray.push(item) : randArray.push(i+randArray[i-1]): console.log('wtf');
 	}
-	return `[${randArray}]`
+	return randArray
 }
 
 function getModa(...numbers) {
 	const modal = [...numbers].filter(item => Number.isInteger(item))
 	const result = []
-	let Maxcounter = 0
+	let maxCounter = 0
 	for (let item of modal) {
-		if (Maxcounter < modal.filter(num => num === item).length && !result.includes(item)) {
-			Maxcounter = modal.filter(num => num === item).length
+		if (maxCounter < modal.filter(num => num === item).length && !result.includes(item)) {
+			maxCounter = modal.filter(num => num === item).length
 			result.pop()
 			result.push(item)
-		} else if (Maxcounter === modal.filter(num => num === item).length && !result.includes(item)) {
+		} else if (maxCounter === modal.filter(num => num === item).length && !result.includes(item)) {
 			result.push(item)
 		}
 	}
@@ -39,23 +39,16 @@ function getMedian (...numbers) {
 
 function filterEvenNumbers (...numbers) {
 	const result = [...numbers]
-	return `[${result.filter(item=> item%2===1)}]`
+	return result.filter(item=> item%2===1)
 }
 
 function countPositiveNumbers (...numbers) {
-	const result = [...numbers]
-	let counter = 0
-	result.forEach(item=>{
-		if(item>0) {
-			counter++
-		}
-	})
-	return counter
+	return [...numbers].filter(item=>item>0)
 }
 
 function getDividedByFive (...numbers) {
 	const result = [...numbers]
-	return `[${result.filter(item => item % 5 === 0)}]`
+	return result.filter(item => item % 5 === 0)
 } 
 
 function replaceBadWords(string) {
@@ -76,7 +69,6 @@ function replaceBadWords(string) {
 	return answer
 }
 
-// generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"]
 function generateCombinations(word) {
 	const newWord = [...word]
 	const result = []
@@ -87,7 +79,7 @@ function generateCombinations(word) {
 			if(!result.includes(newWord)) result.push(newWord.join(''))
 		}
 	}
-	return `[${result}]`
+	return result
 }
 
 document.writeln(`
@@ -104,8 +96,8 @@ ${filterEvenNumbers(1, 2, 3, 4, 5, 6)}</p>
 <p>Створіть функцію countPositiveNumbers(...numbers) – яка порахує кількість чисел більших 0:
 ${countPositiveNumbers(1, -2, 3, -4, -5, 6)}</p>
 <p>Створіть функцію getDividedByFive(...numbers) – 
-яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5
-${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}</p>
+яка відфільтрує усі елементи в масиві та залишить тільки ті, які діляться на ціло на 5</p>
+<p>${getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2)}</p>
 <p>Створіть функцію replaceBadWords(string) – яка 
 1) розіб'є фразу на слова, 
 2) замінить погані слова на зірочки (*). 
