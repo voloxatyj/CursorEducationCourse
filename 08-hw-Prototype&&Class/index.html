@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/1c4f8093f2.js" crossorigin="anonymous"></script>
+	<title>08-hw-Prototype&&Class</title>
+</head>
+	<body>
+		<div class="container my-4">
+			<h1 class="text-center">Blank of registration students</h1 class="text-center">
+			<form>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label for="university">University</label>
+							<input type="text" class="form-control" id="university" required autofocus value="Вищої Школи Психотерапії м.Одеса">
+						</div>
+						<div class="form-group">
+							<label for="course">Course</label>
+							<input type="text" class="form-control" id="course" required value="Студент 1го курсу">
+						</div>
+						<div class="form-group">
+							<label for="fullname">Fullname</label>
+							<input type="text" class="form-control" id="fullname" required value="Остап Родоманський Бендер">
+							<small class="form-text text-muted">please put your firstName && lastName</small>
+						</div>
+						<div class="form-group form-check">
+							<input type="checkbox" class="form-check-input" id="isStudent" value="false">
+							<label class="form-check-label" for="isStudent">Can be a student!):</label>
+						</div>
+						<div class="btn d-inline-flex align-items-center">
+							<button type="submit" id="add" class="btn btn-primary p-1">Add student</button>
+							<i id="info" class="fas fa-info-circle fa-2x p-1" style="color:#6c757d;"></i>
+							<i id="dismiss" class="fas fa-user-minus fa-2x p-1" style="color:#6c757d;"></i>
+							<i id="recover" class="fas fa-user-plus fa-2x p-1" style="color:#6c757d;"></i>
+							<i id="averageMark" class="fas fa-user-graduate fa-2x p-1" style="color:#6c757d;"></i>
+						</div>
+						<div class="form-group">
+							<label for="course">Give a rate for student</label>
+							<input type="text" class="form-control" id="rate" value="5" required>
+							<button type="button" id="marks" class="btn btn-primary m-2">getMarks</button>
+						</div>
+					</div>
+					<div class="col">
+						<div id="studentInfo"></div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<button type="button" id="addBudgetStudent" class="d-inline-flex btn btn-success p-3">
+				<i class="fas fa-user-tag"></i>
+				<i class="fas fa-arrow-circle-right"></i>
+				<i class="fas fa-users"></i>
+			</button>
+			<div id="budgetStudentInfo"></div>
+		</div>
+	</body>
+	<script src="./index.js"></script>
+</html>
