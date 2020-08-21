@@ -1,5 +1,6 @@
 const squareLine = document.getElementById('square-line')
 const squares = document.querySelectorAll('square')
+let interval = null
 
 function generateBlocks () {
 	let i = 1
@@ -16,12 +17,13 @@ document.getElementById('basic').addEventListener('click',()=>{
 	while(squareLine.childElementCount !== 0) {
 			squareLine.firstChild.remove();
 	}
+	clearInterval(interval)
 	generateBlocks()
 })
 
 
 function generateBlocksInterval () {
-	setInterval(()=>{
+	interval = setInterval(()=>{
 		document.querySelectorAll('.square').forEach(item=>
 			item.style.backgroundColor = `hsla(${Math.random() * 360}, 100%, 50%, 1)`)
 	},1000)
@@ -32,5 +34,6 @@ document.getElementById('advanced').addEventListener('click',()=>{
 		generateBlocks()
 		generateBlocksInterval()
 	} 
+	clearInterval(interval)
 	generateBlocksInterval()
 }) 
