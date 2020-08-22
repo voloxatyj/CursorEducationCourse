@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	padding: 0;
+	margin: 0;
+}
+
+h1{
+	text-transform: uppercase;
+}
+
+.container-fluid {
+	display: grid;
+	grid-template-columns: repeat(9,1fr);
+	grid-column-gap: 1.5rem;
+	align-content: center;
+	justify-items: center;
+	background: url("./img/images.jpg") no-repeat center center/cover;
+	min-height: 100vh;
+	color: #ffffff;	
+}
+
+.row {
+	display: grid;
+	align-content: center;
+	height: 11rem;
+	border: 0.3rem solid black;
+	border-radius: 5%;
+	font-size: 1.5rem;
+  transition: all 0.07s;
+  width: 100px;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+	text-shadow: 0 0 5px black;
+	padding: 0.1rem;
+}
+
+.sound {
+	color: #e0e01b;
+	text-transform: uppercase;
+	letter-spacing: 0.5rem;
+	font-size: 0.7rem;
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+.playing {
+	transform: scale(1.1);
+	border-color: #ffc600;
+	box-shadow: 0 0 10px #ffc600;
+}
