@@ -44,16 +44,33 @@
 				<h1>l</h1>
 				<span class="sound">Tink</a>
 			</div>
-			<audio data-info="115" src="sounds/CHINA1.wav"></audio>
-			<audio data-info="97" src="sounds/CLAP.wav"></audio>
-			<audio data-info="100" src="sounds/CRASH1.wav"></audio>
-			<audio data-info="102" src="sounds/HHOPEN1.wav"></audio>
-			<audio data-info="103" src="sounds/HHOPEN2.wav"></audio>
-			<audio data-info="104" src="sounds/RIDEEDGE.wav"></audio>
-			<audio data-info="106" src="sounds/SNARE12.wav"></audio>
-			<audio data-info="107" src="sounds/TOMHI1.wav"></audio>
-			<audio data-info="108" src="sounds/TOMLOW1.wav"></audio>
+			<audio data-info="115" src="./sounds/CHINA1.wav"></audio>
+			<audio data-info="97" src="./sounds/CLAP.wav"></audio>
+			<audio data-info="100" src="./sounds/CRASH1.wav"></audio>
+			<audio data-info="102" src="./sounds/HHOPEN1.wav"></audio>
+			<audio data-info="103" src="./sounds/HHOPEN2.wav"></audio>
+			<audio data-info="104" src="./sounds/RIDEEDGE.wav"></audio>
+			<audio data-info="106" src="./sounds/SNARE12.wav"></audio>
+			<audio data-info="107" src="./sounds/TOMHI1.wav"></audio>
+			<audio data-info="108" src="./sounds/TOMLOW1.wav"></audio>
 	</div>
 </body>
-<script src="index.js"></script>
+<script>
+	const keys = [...document.querySelectorAll('.row')]
+	const audio = [...document.getElementsByTagName('audio')]
+	let eventKey = null
+
+	window.addEventListener('keypress', event => {
+		keys.find(item => {
+			if (item.dataset.info === `${event.keyCode}` && eventKey !== `${event.keyCode}`) {
+				eventKey = `${event.keyCode}`
+				item.classList.add('playing')
+			} else if (item.dataset.info === `${event.keyCode}`) {
+				item.classList.add('playing')
+			} else item.classList.remove('playing')
+		})
+		const result = audio.find(item => item.dataset.info === `${event.keyCode}`)
+		result.play()
+	})
+</script>
 </html>
