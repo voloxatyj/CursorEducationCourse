@@ -32,6 +32,7 @@ function getHeroes (url) {
 			</div>`)
 		})
 	})
+	.catch(err => console.log(err))
 }
 
 document.getElementById('btn').addEventListener('click',()=>{
@@ -74,6 +75,7 @@ function getPlanets (url) {
 					</div>`)
 				})
 			})
+			.catch(err => console.log(err))
 	} else translateOnWookie()
 }
 
@@ -105,7 +107,6 @@ function getInfo (event,url) {
 		const getInfo =  fetch(`${url+film}`)
 			.then(data => data.json())
 			.then(data => {
-				console.log('data: ', Object.keys(data));
 				document.getElementById('modalDiv').innerHTML = `
 				<div class="modal" id="modal" tabindex="-1" style="display:block">
 					<div class="modal-dialog">
@@ -126,6 +127,7 @@ function getInfo (event,url) {
 					</div>
 				</div>`
 			})
+			.catch(err=>console.log(err))
 		} 
 		// else {
 		// 	document.getElementById('tooltip').style.display = 'none'
@@ -171,6 +173,7 @@ function translateOnWookie() {
 							</div>
 					</div>`)
 				})
+				.catch(err => console.log(err))
 			const wookie_planets = fetch(urlPlanets + i + '/?format=wookiee')
 				.then(data => data.json())
 				.then(data => {
@@ -185,6 +188,7 @@ function translateOnWookie() {
 								</div>
 						</div>`)
 				})
+				.catch(err => console.log(err))
 		}
 	} else {
 		for (let i = 1; i < 10; i++) {
