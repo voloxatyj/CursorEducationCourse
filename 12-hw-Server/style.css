@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Krona One', monospace;
+}
+
+body {
+	width: 100vw;
+  height: 100vh;
+}
+
+/* NavbarMenu */
+.navbar {
+	width: 100%;
+	position: relative !important;
+	display: inline-flex !important;
+	flex-wrap: nowrap !important;
+	justify-content: space-around !important;
+	border-bottom: 1px solid #ffc107;
+  margin-bottom: 1px;
+}
+
+.modal-content {
+	color: #ffc107;
+}
+
+.invalid-tooltip {
+    margin-left: 1rem;
+}
+
+.btn {
+	padding: 0.1rem 0.1rem !important;
+}
+
+.form-inline {
+	padding: 0.5rem .5rem !important;
+	display: inline-flex !important;
+	flex-flow: nowrap !important;
+}
+
+.form-control {
+	width: 30vw !important;
+}
+
+i{
+	cursor: pointer;
+}
+
+/* Page of Heroes */
+.container_heroes {
+	display: grid;
+	grid: repeat(4, 1fr) / repeat(3, 1fr);
+	justify-content: center;
+	height: auto;
+	justify-items: center;
+}
+
+.logo {
+	height: 35vh;
+	grid-column-start:2;
+  grid-column-end: 3;
+	grid-row-start:1;
+  grid-row-end: 3;
+}
+
+.heroes {
+	align-items: center;
+	justify-items: center;
+	display: inline-flex;
+	padding: 0.5rem;
+	flex-direction: row !important;
+	cursor: pointer;
+	justify-content: space-between;
+	padding-left: 4.5rem;
+  margin-top: 2rem;
+}
+
+.heroes-img-top {
+	width: 50% !important;
+	height: 50% !important;
+	border-radius: 50% !important;
+	border: 2px solid salmon;
+	transition: all 1s linear;
+}
+
+.heroes-text {
+	display: grid;
+	justify-content: space-around;
+	opacity: 0.1;
+  transition: all 1.5s linear;
+	font-family: 'Krona One', sans-serif;
+	color: hsl(0.15turn, 85%, 50%);
+}
+
+.heroes:hover .heroes-text {
+	transform: scale(1.1);
+  opacity: 1;
+}
+
+.heroes:hover .heroes-img-top {
+	transform: scale(1.1);
+}
+
+.btn {
+	font-family: 'Krona One', monospace;
+	grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  height: 30%;
+  margin-top: 7rem;
+}
+
+.btn-active {
+    color: #212529 !important;
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+}
+
+/* Planets */
+.container_planets {
+	display: grid;
+	grid: repeat(4, 1fr) / repeat(3, 1fr);
+	justify-content: center;
+	height: 100vh;
+	justify-items: center;
+	background-image: url('https://vignette.wikia.nocookie.net/starwars/images/8/86/Tauntaun-TOTS.jpg/revision/latest?cb=20160220050752');
+	background-repeat: round;
+}
