@@ -13,7 +13,7 @@ const images_of_heroes = {
 
 const urlHeroes = 'https://swapi.dev/api/people/'
 const urlPlanets = 'https://swapi.dev/api/planets/'
-const urlFilmInfo = 'https://swapi.dev/api/films/'
+const urlFilmInfo = 'http://swapi.dev/api/films/'
 
 function getHeroes (url) {
 	const people = fetch(url)
