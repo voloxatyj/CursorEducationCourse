@@ -1,23 +1,26 @@
 function getRandomChinese(length) {
 	let i = 1
-	let newLength = 50 * `${length}`
+	let sign = ''
+	let newLength = 50 * length
 	while(i<=length){
-		const date = Date.now().toString(2)
-		const dateSign = date.slice(date.length-5).split('')
-		const sign = new Promise(function(resolve,reject){
+		const date = Date.now().toString()
+		const dateSign = date.slice(date.length-5)
+		const result = new Promise(function(resolve,reject){
 			try {
-				setTimeout(() => resolve(dateSign.reduce((acc, next) => {
-					return acc += String.fromCharCode(next)
-					}, '')), newLength)
+				setTimeout(() => resolve(sign += String.fromCharCode(dateSign)), newLength)
 			} catch (error) {
 				console.error(error)
 			}
 		})
+		if(i===length) {
+			return result
+		}
 		i++
-		return sign
 	}
 }
-const length = 100
+
+const length = 4
+
 getRandomChinese(length).then(data => {
 	document.writeln(`
 	<h1>Promises JS</h1>
