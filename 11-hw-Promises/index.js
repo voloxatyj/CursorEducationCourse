@@ -13,6 +13,7 @@ function getRandomChinese(i) {
 	}
 	
 	
+	(function(){
 		const length = 4
 		let sign = ''
 		let i = 1
@@ -23,4 +24,5 @@ function getRandomChinese(i) {
 			})
 			i++
 		}
+	}())
 
