@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900");
+body {
+  font-family: 'Londrina Solid', cursive;
+  color: #6b6b6b;
+  font-size: 17px;
+  line-height: 1.6;
+}
+/* ===================================== */
+/* ===== THE INTERESTING STUFF NOW ===== */
+/* ===================================== */
+.navbar {
+  border: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.navbar-toggle {
+	display: block;
+}
+.navbar-header {
+	display: flex;
+	align-items: baseline;
+	cursor: pointer;
+}
+.navbar-brand {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: floralwhite;
+}
+.items{
+   margin-top: 15rem;
+}
+.navbar--size--xl {
+  padding: 4rem 0;
+}
+.navbar--size--lg {
+  padding: 2rem 0;
+}
+.navbar--size--md {
+  padding: 1rem 0;
+}
+.navbar--size--sm {
+  padding: 0;
+}
+.navbar--color--white {
+  background: #fff;
+}
+.navbar--color--primary {
+  background: #37ca7e;
+}
+.navbar--color--secondary {
+  background: #43a6dd;
+}
+.navbar--color--ghost {
+  background: rgba(0,0,0,0.2);
+}
+a:focus, a:hover {
+    color: blue;
+    text-decoration: none;
+}
+.navbar--color--ghost .navbar-brand,
+.navbar--color--ghost .navbar-text,
+.navbar--color--ghost a,i,p {
+  color: #fff;
+}
+.hw {
+  border: 1px solid blue;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 20px 15% / 20px 30px;
+}
+.hw:hover{
+  background-color: whitesmoke;
+  cursor: pointer;
+}

@@ -1,0 +1,10 @@
+.hello {
+	display: flex;
+  justify-content: center;
+}
+.words{
+	color: lightskyblue;
+  position: absolute;
+  top: 46%;
+}
+
