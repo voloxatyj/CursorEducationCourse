@@ -53,9 +53,12 @@ body {
 .navbar--color--ghost {
   background: rgba(0,0,0,0.2);
 }
+a {
+  color: #43a6dd;
+}
 a:focus, a:hover {
-    color: blue;
-    text-decoration: none;
+  text-decoration: none;
+  color: #43a6dd;
 }
 .navbar--color--ghost .navbar-brand,
 .navbar--color--ghost .navbar-text,
@@ -65,10 +68,11 @@ a:focus, a:hover {
 .hw {
   border: 1px solid blue;
   margin: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
+  padding-left: 3rem;
   border-radius: 20px 15% / 20px 30px;
 }
 .hw:hover{
-  background-color: whitesmoke;
+  background: linear-gradient(90deg, grey,#3a49d6);
   cursor: pointer;
 }

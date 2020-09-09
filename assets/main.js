@@ -18,7 +18,6 @@ function switchStart () {
 $(window).scroll(() => (scrolling = true));
 
 setInterval(() => {
-	console.log('window: ', window);
 	if (scrolling) {
 		scrolling = false;
 		if ($(window).scrollTop() > 100) {
@@ -32,3 +31,19 @@ setInterval(() => {
 		}
 	}
 }, 100);
+
+document.querySelectorAll('.animate__animated').forEach(item=>{
+	item.addEventListener('mouseover', (event)=>{
+		event.target.closest("p").classList = 'animate__animated animate__shakeX hw'
+		})
+	item.addEventListener('mouseout', (event)=>{
+		event.target.closest("p").classList = 'animate__animated animate__bounceOutRight animate__slow 1s hw'
+		comeBack(item)
+	})
+})
+	
+	function comeBack(element){
+		setTimeout(() => {
+			element.classList = 'animate__animated animate__bounceInLeft animate__slow	2s hw'
+		}, 5000)
+	}
