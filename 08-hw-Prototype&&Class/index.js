@@ -19,41 +19,26 @@ class Student {
 		this.university = university, 
 		this.course = course, 
 		this.fullName = fullName,
-		this._isStudent = true,
+		this.isStudent = true,
 		this._marks = rates
-	}
-	getInfo() {
-		studentInfo.innerHTML = 
-		`<div class="m-4">
-		<h3>University</h3><h5>${this.university}</h5>
-		<h3>Course</h3><h5>${this.course}</h5>
-		<h3>FullName</h3><h5>${this.fullName}</h5>
-		<h3>Marks</h3><h5>${this._marks}</h5>
-		</div>`
 	}
 	getAverageMark() {
 		return (this._marks.reduce((acc, next) => acc += next) / this._marks.length).toFixed(1)
 	}
 	dismiss() {
-		this.isStudent = false,
-		rates.concat(this._marks)
-		this._marks = null
+		this.isStudent = false
 	}
 	recover() {
 		this.isStudent = true
 		this._marks = rates
 	}
 	get marks() {
-		return this._marks 
+		return this._marks
 	}
 	set marks(value) {
-		this.marks.push(+value)
-	}
-	set isStudent(value) {
-		this._isStudent = value
+		this._marks.push(+value)
 	}
 }
-
 
 btnAdd.addEventListener('click', function(e){
 	e.preventDefault()
@@ -61,7 +46,17 @@ btnAdd.addEventListener('click', function(e){
 })
 
 btnInfo.addEventListener('click', function(){
-	student === null ? studentInfo.innerHTML = `<h3 class="m-4">You must add student!!</h3>` : student.getInfo()
+	if(student === null) {
+		studentInfo.innerHTML = `<h3 class="m-4">You must add student!!</h3>`
+	} else if(student.isStudent){
+		studentInfo.innerHTML =
+		`<div class="m-4">
+		<h3>University</h3><h5>${student.university}</h5>
+		<h3>Course</h3><h5>${student.course}</h5>
+		<h3>FullName</h3><h5>${student.fullName}</h5>
+		<h3>Marks</h3><h5>${student._marks}</h5>
+		</div>`
+	} else studentInfo.innerHTML = ''
 })
 
 btnAverage.addEventListener('click', function(){
@@ -73,7 +68,6 @@ btnAverage.addEventListener('click', function(){
 
 btnRecover.addEventListener('click', function(){
 	student.recover()
-	student.getInfo()
 })
 
 btnThrow.addEventListener('click', function(){
@@ -82,17 +76,20 @@ btnThrow.addEventListener('click', function(){
 })
 
 btnMarks.addEventListener('click', function(){
-	if (student._isStudent){
+	if (student.isStudent){
+		console.log('rate.value: ', rate.value);
 		student.marks = rate.value
-		student.getInfo()
-	} else studentInfo.innerHTML = `<h3 class="m-4">Please, include student</h3>`
+		console.log('student.marks: ', student.marks);
+	} else {
+		studentInfo.innerHTML = `<h3 class="m-4">Please, include student</h3>`
+	}
 })
 
 class BudgetStudent extends Student {
 	constructor (university, course, fullName, _marks, isStudent) {
 		super(university, course, fullName, _marks, isStudent)
 		setInterval(() => {
-			if (budgetStudent._isStudent && super.getAverageMark() > 4) {
+			if (budgetStudent.isStudent && super.getAverageMark() > 4) {
 				console.log('Ви отримаєте 1400 грн. стипендії')
 			} else {
 				console.log(`Студент не отримає стипендії`)
@@ -102,13 +99,13 @@ class BudgetStudent extends Student {
 		this.course = course,
 		this.fullName = fullName,
 		this._marks = _marks,
-		this._isStudent = isStudent
+		this.isStudent = isStudent
 	}
 }
 
 btnaddBudgetStudent.addEventListener('click', () => {
-	budgetStudent = new BudgetStudent(student.university, student.course, student.fullName, student._marks, student._isStudent)
-	if (budgetStudent._isStudent) {
+	budgetStudent = new BudgetStudent(student.university, student.course, student.fullName, student._marks, student.isStudent)
+	if (budgetStudent.isStudent) {
 		budgetStudentInfo.innerHTML = `<p><strong>Студента перевели на бюджет</strong></p>` 
 		budgetStudentInfo.style.color = 'green'
 	}  else {
