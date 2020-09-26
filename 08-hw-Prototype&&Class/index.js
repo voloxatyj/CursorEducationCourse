@@ -77,9 +77,7 @@ btnThrow.addEventListener('click', function(){
 
 btnMarks.addEventListener('click', function(){
 	if (student.isStudent){
-		console.log('rate.value: ', rate.value);
 		student.marks = rate.value
-		console.log('student.marks: ', student.marks);
 	} else {
 		studentInfo.innerHTML = `<h3 class="m-4">Please, include student</h3>`
 	}
